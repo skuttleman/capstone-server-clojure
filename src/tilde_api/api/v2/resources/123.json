@@ -1,0 +1,163 @@
+{
+	"id": 123,
+	"levelData": {
+		"worldBounds": {
+			"upperLeft": {
+				"x": 0,
+				"y": 0
+			},
+			"lowerRight": {
+				"x": 800,
+				"y": 450
+			}
+		},
+		"assets": [{
+			"type": "spritesheet",
+			"args": ["walls", "/assets/images/walls.png", 50, 50],
+			"defaultFrames": [0]
+		}, {
+			"type": "spritesheet",
+			"args": ["water", "/assets/images/water.png", 50, 50],
+			"defaultFrames": [0, 16, 32, 48, 64]
+		}, {
+			"type": "spritesheet",
+			"args": ["hyperlink", "/assets/images/hyperlink.png", 50, 50]
+		}, {
+			"type": "spritesheet",
+			"args": ["tilde", "/assets/images/tilde.png", 50, 50]
+		}, {
+			"type": "spritesheet",
+			"args": ["button", "/assets/images/button.png", 50, 50]
+		}, {
+			"type": "image",
+			"args": ["star", "/assets/images/star.png"]
+		}],
+		"player1": [{
+			"sprite": "hyperlink",
+			"type": "player",
+			"position": {
+				"x": 200,
+				"y": 200
+			},
+			"name": "player"
+		}, {
+			"sprite": "star",
+			"type": "object",
+			"position": {
+				"x": 300,
+				"y": 300
+			},
+			"name": "star-1",
+			"behaviors": {
+				"properties": {
+					"playerInteraction": "enter",
+					"objectInteraction": "enter"
+				},
+				"events": {
+					"playerEnter": {
+						"actions": [{
+							"action": "sendSignalSelf",
+							"signal": "destroy"
+						}, {
+							"action": "endGame"
+						}]
+					},
+					"objectEnter": {
+						"actions": [{
+							"action": "sendSignalOther",
+							"signal": "destroy"
+						}]
+					}
+				},
+				"tags": ["something", "something-else"]
+			}
+		}, {
+			"sprite": "star",
+			"type": "object",
+			"position": {
+				"x": 350,
+				"y": 300
+			},
+			"name": "star-2",
+			"behaviors": {
+				"properties": {
+					"playerInteraction": "move",
+					"objectInteraction": "move"
+				}
+			}
+		}, {
+			"sprite": "star",
+			"type": "object",
+			"position": {
+				"x": 500,
+				"y": 400
+			},
+			"name": "star-3",
+			"behaviors": {
+				"properties": {
+					"playerInteraction": "move",
+					"objectInteraction": "block"
+				}
+			}
+		}],
+		"common": [{
+			"sprite": "walls",
+			"type": "auto-wall",
+			"position": {
+				"x": 0,
+				"y": 0
+			}
+		}, {
+			"sprite": "walls",
+			"type": "auto-wall",
+			"position": {
+				"x": 50,
+				"y": 0
+			}
+		}, {
+			"sprite": "walls",
+			"type": "auto-wall",
+			"position": {
+				"x": 0,
+				"y": 100
+			}
+		}, {
+			"sprite": "walls",
+			"type": "auto-wall",
+			"position": {
+				"x": 0,
+				"y": 50
+			}
+		}, {
+			"sprite": "walls",
+			"type": "auto-wall",
+			"position": {
+				"x": 50,
+				"y": 100
+			}
+		}, {
+			"sprite": "walls",
+			"type": "auto-wall",
+			"position": {
+				"x": 50,
+				"y": 150
+			}
+		}, {
+			"sprite": "walls",
+			"type": "auto-wall",
+			"position": {
+				"x": 100,
+				"y": 100
+			}
+		}],
+		"player2": [{
+			"sprite": "tilde",
+			"type": "player",
+			"position": {
+				"x": 200,
+				"y": 200
+			},
+			"name": "player"
+		}]
+	}
+}

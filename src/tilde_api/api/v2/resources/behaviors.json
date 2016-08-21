@@ -1,0 +1,108 @@
+{
+	"behaviors": {
+		"events": [{
+			"name": "playerEnter",
+			"requirements": [],
+			"description": "The player stands on the object."
+		}, {
+			"name": "playerEnterFirst",
+			"requirements": [],
+			"description": "The first time the player stands on the object."
+		}, {
+			"name": "playerExit",
+			"requirements": [],
+			"description": "The player leaves the object."
+		}, {
+			"name": "playerExitFirst",
+			"requirements": [],
+			"description": "The first time the player leaves the object."
+		}, {
+			"name": "objectEnter",
+			"requirements": [],
+			"description": "Another object enters the object."
+		}, {
+			"name": "objectEnterFirst",
+			"requirements": [],
+			"description": "The first time any other object enters the object."
+		}, {
+			"name": "objectExit",
+			"requirements": [],
+			"description": "Another object leaves the object."
+		}, {
+			"name": "objectExitFirst",
+			"requirements": [],
+			"description": "The first time any other object leaves the object."
+		}, {
+			"name": "receiveSignal",
+			"requirements": ["signal"],
+			"description": "A specified signal is received."
+		}],
+		"actions": [{
+			"name": "endGame",
+			"requirements": [],
+			"description": "The game is successfully completed."
+		}, {
+			"name": "resetTurn",
+			"requirements": [],
+			"description": "The state of the game is returned to how it was when the current player's turn began."
+		}, {
+			"name": "sendSignalSelf",
+			"requirements": ["signal"],
+			"description": "The object sends a signal to itself."
+		}, {
+			"name": "sendSignalOther",
+			"requirements": ["signal"],
+			"description": "The object sends a signal to the object that triggered the event."
+		}, {
+			"name": "sendSignalTags",
+			"requirements": ["signal", "tags"],
+			"description": "The object sends a signal to the specified tag(s)."
+		}, {
+			"name": "sendSignalAll",
+			"requirements": ["signal"],
+			"description": "A signal is broadcast to any object setup to receive it."
+		}],
+		"signals": [{
+			"name": "disable",
+			"requirements": [],
+			"description": "The target(s) stop responding to events."
+		}, {
+			"name": "enable",
+			"requirements": [],
+			"description": "The target(s) resume responding to events."
+		}, {
+			"name": "destroy",
+			"requirements": [],
+			"description": "The target(s) is/are destroyed."
+		}, {
+			"name": "stopRendering",
+			"requirements": [],
+			"description": "The target(s) is/are no longer visible. Does not effect interactions."
+		}, {
+			"name": "startRendering",
+			"requirements": [],
+			"description": "The target(s) resume rendering."
+		}, {
+			"name": "addTag",
+			"requirements": ["tag"],
+			"description": "Add a tag to the targets(s) if not already added."
+		}, {
+			"name": "dropTag",
+			"requirements": ["tag"],
+			"description": "Remove a tag from the target(s) if it exists."
+		}, {
+			"name": "setProperty",
+			"requirements": ["property", "value"],
+			"description": "Set the value of a property on the target(s)."
+		}],
+		"properties": [{
+			"name": "playerInteraction",
+			"description": "Determines if the player can move or enter the object.",
+			"values": ["move", "enter", "block"]
+		}, {
+			"name": "objectInteraction",
+			"description": "Determines if another object can move or enter the object.",
+			"values": ["move", "enter", "block"]
+		}]
+	}
+}
