@@ -12,12 +12,14 @@
             [tilde-api.services.request-parser :as parser]
             [tilde-api.services.logger :as logger]
             [tilde-api.services.socket :refer [socket send-message!]]
+            [tilde-api.services.twilio :refer [send-sms!]]
             [tilde-api.api :as api]))
 
 (defroutes app-routes
   (GET "/healthcheck" [] {:status 200 :body {:health "OK"}})
   (GET "/socket" request (socket request))
   (POST "/send-message" { {email :email key :key payload :payload} :body} (send-message! email key payload) {:body {:message :ok}})
+  (POST "/send-sms" { {id :id message :message} :body} (send-sms! id message))
   (context "/auth" [] auth-api/core)
   (context "/api" [] api/core)
   (not-found {:status 404 :body {:message "Unknown resource"}}))

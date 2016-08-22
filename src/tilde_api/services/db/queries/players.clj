@@ -9,6 +9,9 @@
     "FROM players "
     "WHERE id=?") id])
 
+(defn get-phone [id]
+  [(str "SELECT phone_number FROM players WHERE id=?") id])
+
 (defn update-phone! [id phone]
   [(str "UPDATE players "
     "SET phone_number=? "

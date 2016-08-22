@@ -16,5 +16,6 @@
                	 [mysql/mysql-connector-java "5.1.39"]
                  [org.clojure/java.jdbc "0.3.6"]
                  [http-kit "2.1.18"]
+                 [twilio-api "1.0.1"]
                  [clojure.jdbc/clojure.jdbc-c3p0 "0.3.1"]
                  [org.clojure/data.json "0.2.6"]])
